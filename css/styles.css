@@ -3,7 +3,7 @@
   --main-heading-stack: "Krona One", sans-serif;
   --main-font-stack: "PT Serif", serif;
   --main-color-theme: teal;
-  --light-white-color: rgb(250, 90, 27);
+  --light-white-color: rgb(36, 34, 33);
   --light-gray-color: #ccc;
   --light-black-color: #1a1a1a;
 }
@@ -38,6 +38,7 @@ body {
 .jabquiz__tracker {
   padding: 1rem;
   font-family: var(--main-font-stack);
+  color: var(--light-gray-color);
 }
 .jabquiz__progress {
   background-color: var(--light-gray-color);
@@ -75,6 +76,7 @@ body {
   padding: 1rem;
   background-color: var(--light-white-color);
   margin: 0.2rem;
+  border-radius: 5px;
 }
 i {
   background-size: 40px;
