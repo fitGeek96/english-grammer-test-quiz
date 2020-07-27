@@ -12,7 +12,7 @@ const App = (() => {
 
   const q1 = new Question(
     "Q1. It's my birthday today! ....",
-    ["Congratulations", "Thans a lot", "Help yourself", "Well done."],
+    ["Congratulations", "Thanks a lot", "Help yourself", "Well done."],
     0
   );
   const q2 = new Question(

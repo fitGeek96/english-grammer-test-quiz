@@ -20,30 +20,29 @@ body {
 
 .container {
   max-width: 500px;
-  margin: 4rem auto;
 }
 .jabquiz {
   padding: 2rem;
-  margin: 4rem auto;
 }
 .jabquiz__question-box {
   text-align: center;
 }
 .jabquiz__question {
-  padding: 0.2rem;
+  padding: 0rem;
   font-family: var(--main-heading-stack);
   letter-spacing: 2px;
   font-size: 1rem;
 }
 .jabquiz__tracker {
-  padding: 1rem;
+  padding: .5rem;
   font-family: var(--main-font-stack);
   color: var(--light-gray-color);
+  font-size: .8rem;
 }
 .jabquiz__progress {
   background-color: var(--light-gray-color);
   width: 40%;
-  margin: 1rem auto;
+  margin: 0rem auto;
   border-radius: 4px;
 }
 .progress__inner {
@@ -55,7 +54,7 @@ body {
   color: var(--light-gray-color);
   letter-spacing: 2px;
   font-size: 0.7rem;
-  padding: 1.5rem;
+  padding: 1rem;
 }
 .jabquiz__choices-box {
   position: relative;
@@ -66,7 +65,7 @@ body {
   justify-items: center;
   flex-wrap: wrap;
   flex-direction: column;
-  padding: 0 4rem;
+  padding: 0 1rem;
 }
 .jabquiz__choice {
   font-family: var(--main-heading-stack);
@@ -79,11 +78,10 @@ body {
   border-radius: 5px;
 }
 i {
-  background-size: 40px;
-  height: 40px;
-  width: 40px;
+  background-size: 20px;
+  height: 20px;
+  width: 20px;
   margin-right: 1rem;
-  margin-top: -.5rem;
 }
 .jabquiz__label {
   display: flex;
