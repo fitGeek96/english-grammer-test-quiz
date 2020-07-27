@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Krona+One&family=PT+Serif:wght@700&display=swap");
+:root {
+  --main-heading-stack: "Krona One", sans-serif;
+  --main-font-stack: "PT Serif", serif;
+  --main-color-theme: teal;
+  --light-white-color: rgb(250, 90, 27);
+  --light-gray-color: #ccc;
+  --light-black-color: #1a1a1a;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+}
+
+.container {
+  max-width: 500px;
+  margin: 4rem auto;
+}
+.jabquiz {
+  padding: 2rem;
+  margin: 4rem auto;
+}
+.jabquiz__question-box {
+  text-align: center;
+}
+.jabquiz__question {
+  padding: 0.2rem;
+  font-family: var(--main-heading-stack);
+  letter-spacing: 2px;
+  font-size: 1rem;
+}
+.jabquiz__tracker {
+  padding: 1rem;
+  font-family: var(--main-font-stack);
+}
+.jabquiz__progress {
+  background-color: var(--light-gray-color);
+  width: 40%;
+  margin: 1rem auto;
+  border-radius: 4px;
+}
+.progress__inner {
+  height: 8px;
+  width: 4px;
+}
+.jabquiz__tagline {
+  font-family: var(--main-heading-stack);
+  color: var(--light-gray-color);
+  letter-spacing: 2px;
+  font-size: 0.7rem;
+  padding: 1.5rem;
+}
+.jabquiz__choices-box {
+  position: relative;
+  margin: 0 auto;
+}
+.jabquiz__choices {
+  display: flex;
+  justify-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 0 4rem;
+}
+.jabquiz__choice {
+  font-family: var(--main-heading-stack);
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+  list-style-type: none;
+  padding: 1rem;
+  background-color: var(--light-white-color);
+  margin: 0.2rem;
+}
+i {
+  background-size: 40px;
+  height: 40px;
+  width: 40px;
+  margin-right: 1rem;
+  margin-top: -.5rem;
+}
+.jabquiz__label {
+  display: flex;
+  justify-content: start;
+}
+.jabquiz__choice input {
+  opacity: 0;
+}
+.jabquiz__choice input:checked + label{
+  color: var(--main-color-theme);
+}
+.jabquiz__choice input:checked + label i {
+  background-image: url(../images/circle-filled.svg);
+}
+.jabquiz__choice label{
+color: whitesmoke;
+}
+.jabquiz__choice label i {
+  background-image: url(../images/circle-outline.svg);
+}
+
+.jabquiz__footer {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+}
+.btn {
+  font-family: var(--main-heading-stack);
+  font-size: 1rem;
+  padding: 0.5rem;
+  outline: 0;
+  background-color: transparent;
+  transition: 0.3s all ease;
+}
+.btn:hover {
+  background-color: var(--light-black-color);
+  color: whitesmoke;
+}
+.btn--bordered {
+  border-radius: 4px;
+  border: 1px solid var(--light-black-color);
+}
