@@ -109,4 +109,10 @@ const App = (() => {
       //4. render progress
     }
   };
+
+  return {
+    renderAll: renderAll,
+  };
 })();
+
+App.renderAll();

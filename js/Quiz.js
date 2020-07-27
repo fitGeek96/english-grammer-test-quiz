@@ -5,7 +5,7 @@ export default function Quiz(questions) {
   this.currentIndex = 0;
 }
 Quiz.prototype.hasEnded = function () {
-  return this.currentIndex === this.question.length;
+  return this.currentIndex === this.questions.length;
 };
 Quiz.prototype.getCurrentQuestion = function () {
   return this.questions[this.currentIndex];
