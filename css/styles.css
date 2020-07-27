@@ -5,7 +5,7 @@
   --main-color-theme: teal;
   --light-white-color: rgb(36, 34, 33);
   --light-gray-color: #ccc;
-  --light-black-color: #1a1a1a;
+  --light-black-color: #ff1500fa;
 }
 
 * {
@@ -48,6 +48,7 @@ body {
 .progress__inner {
   height: 8px;
   width: 4px;
+  background-color: orangered;
 }
 .jabquiz__tagline {
   font-family: var(--main-heading-stack);
@@ -72,16 +73,16 @@ body {
   letter-spacing: 1px;
   font-size: 0.8rem;
   list-style-type: none;
-  padding: 1rem;
+  padding: .7rem 1rem;
   background-color: var(--light-white-color);
-  margin: 0.2rem;
+  margin-top: 0.2rem;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
 }
-i {
-  background-size: 20px;
-  height: 20px;
-  width: 20px;
-  margin-right: 1rem;
+
+span {
+  margin-left: 1rem;
 }
 .jabquiz__label {
   display: flex;
@@ -101,6 +102,11 @@ color: whitesmoke;
 }
 .jabquiz__choice label i {
   background-image: url(../images/circle-outline.svg);
+  background-size: 20px;
+  height: 20px;
+  width: 20px;
+  padding: .6rem;
+  justify-content: center;
 }
 
 .jabquiz__footer {
@@ -117,7 +123,7 @@ color: whitesmoke;
   transition: 0.3s all ease;
 }
 .btn:hover {
-  background-color: var(--light-black-color);
+  background-color: orangered;
   color: whitesmoke;
 }
 .btn--bordered {

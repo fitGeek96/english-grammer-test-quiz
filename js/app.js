@@ -9,6 +9,8 @@ const App = (() => {
   const progressBarEl = document.querySelector(".progress__inner");
   const taglineEl = document.querySelector(".jabquiz__tagline");
   const choicesEl = document.querySelector(".jabquiz__choices");
+  const nextButtonEl = document.querySelector(".next");
+  const restartButtonEl = document.querySelector(".restart");
 
   const q1 = new Question(
     "Q1. It's my birthday today! ....",
@@ -71,6 +73,24 @@ const App = (() => {
     return Math.floor((num1 / num2) * 100);
   };
 
+  const launch = (width, maxPercent) => {
+    let loadingBar = setInterval(() => {
+      if (width > maxPercent) {
+        clearInterval(loadingBar);
+      } else {
+        width++;
+        progressBarEl.style.width = `${width}%`;
+      }
+    }, 3);
+  };
+
+  const renderProgress = (_) => {
+    //1. get the current width
+    const width = getPercentage(quiz.currentIndex, quiz.questions.length);
+    //2. launch(0, width)
+    launch(0, width);
+  };
+
   const renderTracker = (_) => {
     const index = quiz.currentIndex;
     setValue(trackerEl, `${index + 1} of ${quiz.questions.length}`);
@@ -96,9 +116,42 @@ const App = (() => {
     setValue(choicesEl, markup);
   };
 
+  const renderEndScresn = (_) => {
+    const finalScore = getPercentage(quiz.score, quiz.questions.length);
+    if (finalScore <= 12) {
+      setValue(quizQuestionEl, "L'enlglais mchi ta3 wajhak ... !");
+    } else if (finalScore > 12 && finalScore <= 24) {
+      setValue(quizQuestionEl, "Mazeeel khasek mazel!");
+    } else if (finalScore > 24 && finalScore <= 36) {
+      setValue(quizQuestionEl, "Mchi hta ltema!");
+    } else if (finalScore > 36 && finalScore <= 60) {
+      setValue(quizQuestionEl, "Cv rak mlik baseh mzl yli9lek!");
+    } else if (finalScore > 60 && finalScore <= 72) {
+      setValue(quizQuestionEl, "Ewa cv rak tgoul!");
+    } else if (finalScore > 72 && finalScore <= 84) {
+      setValue(quizQuestionEl, "Rak 9rib tweli kifi zid khdem chwiya zid ...!");
+    } else if (finalScore > 84 && finalScore <= 96) {
+      setValue(
+        quizQuestionEl,
+        "Ehiiiie ak tiir bsh mzl mzl khassek bech tweli kifi!"
+      );
+    } else if (finalScore > 96 && finalScore <= 100) {
+      setValue(quizQuestionEl, "Piiiii Great Job , nedik maaya surely!");
+    }
+    setValue(taglineEl, "Complete");
+    setValue(
+      trackerEl,
+      `Your Score is ${getPercentage(quiz.score, quiz.questions.length)}%`
+    );
+    nextButtonEl.style.opacity = 0;
+    quizQuestionEl.style.color = "orangered";
+    renderProgress();
+  };
+
   const renderAll = (_) => {
     if (quiz.hasEnded()) {
       // render end screen
+      renderEndScresn();
     } else {
       //1. render question
       renderQuestion();
@@ -107,12 +160,36 @@ const App = (() => {
       //3. render choices
       renderChoices();
       //4. render progress
+      renderProgress();
     }
+  };
+
+  const listeners = (_) => {
+    nextButtonEl.addEventListener("click", function () {
+      const selectedRadioEl = document.querySelector(
+        'input[name="choice"]:checked'
+      );
+      if (selectedRadioEl) {
+        const key = Number(selectedRadioEl.getAttribute("data-order"));
+        quiz.guess(key);
+        renderAll();
+      }
+    });
+
+    restartButtonEl.addEventListener("click", function () {
+      quiz.restart();
+      nextButtonEl.style.opacity = 1;
+      setValue(taglineEl, "Pick an option below!");
+      quizQuestionEl.style.color = "black";
+      renderAll();
+    });
   };
 
   return {
     renderAll: renderAll,
+    listeners: listeners,
   };
 })();
 
 App.renderAll();
+App.listeners();
